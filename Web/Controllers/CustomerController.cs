@@ -26,7 +26,7 @@ namespace Web.Controllers
 
             if (pessoa == null)
             {
-                StatusCode(StatusCodes.Status204NoContent, "Não foi possivel encontrar o registo!");
+                return StatusCode(StatusCodes.Status204NoContent, "Não foi possivel encontrar o registo!");
             }
 
             return Ok(pessoa);
