@@ -5,7 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.Kinesis" Version="3.3.100.89" />
+    <PackageReference Include="Barigui.Extensions" Version="0.1.0-unstable0025" />
+    <PackageReference Include="Google.Protobuf" Version="3.10.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
+    <PackageReference Include="protobuf-net" Version="2.4.1" />
+    <PackageReference Include="Barigui.Infrastructure.Broker" Version="0.1.0-unstable0046" />
+    <PackageReference Include="Barigui.Infrastructure.Events" Version="0.2.1-unstable0015" />
   </ItemGroup>
 
   <ItemGroup>

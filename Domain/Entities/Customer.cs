@@ -1,4 +1,5 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
+using ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,6 @@ namespace Domain.Entities
         [DynamoDBProperty]
         public string Telefone { get; set; }
         [DynamoDBProperty]
-        public int Idade { get; set; }
+        public string Idade { get; set; }
     }
 }

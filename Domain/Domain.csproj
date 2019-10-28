@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.101.77" />
+    <PackageReference Include="protobuf-net" Version="2.4.1" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,8 @@ using System;
 using System.Reflection;
 using Amazon.DynamoDBv2;
 using Application.CommandsHandlers;
+using Application.Services;
+using Application.Services.Interfaces;
 using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -48,12 +50,14 @@ namespace Web
 
 
             services.Configure<AwsCredentials>(Configuration.GetSection("AwsCredentials"));
-            services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
-            services.AddAWSService<IAmazonDynamoDB>(Configuration.GetAWSOptions(), ServiceLifetime.Transient);
+            //services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
+            //services.AddAWSService<IAmazonDynamoDB>(Configuration.GetAWSOptions(), ServiceLifetime.Transient);
 
             services.AddTransient<IReader, Reader>();
             services.AddTransient<IWrite, Write>();
             services.AddTransient<IRemove, Remove>();
+
+            services.AddTransient<ICustomerService, CustomerService>();
 
         }
 

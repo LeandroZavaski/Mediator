@@ -1,9 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Application.Commands;
+using Application.Services.Interfaces;
+using Barigui;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Web.ApiModels;
 
 namespace Web.Controllers
 {
@@ -12,12 +17,15 @@ namespace Web.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(IMediator mediator)
+        public CustomerController(IMediator mediator, ICustomerService customerService)
         {
             _mediator = mediator;
+            _customerService = customerService;
         }
 
+        #region CRUD Dynamo
         // GET: api/Costumer/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
@@ -63,5 +71,30 @@ namespace Web.Controllers
 
             return Ok();
         }
+        #endregion
+
+        #region Kinesis
+
+        [HttpPut]
+        [AllowAnonymous]
+        [Route("[Action]")]
+        public async Task<ActionResult> PutCustomerKinesis(string id, [FromBody]CustomerInfoInsertionRequest customerInsertionRequest)
+        {
+            return await ProcessBaseEvent(id, customerInsertionRequest);
+        }
+
+        private async Task<ActionResult> ProcessBaseEvent(string id, CustomerBaseRequest request)
+        {
+            request.RequestId = Request.Headers.TryGetValue("Request-Id", out var requestId) ? requestId.ToString() : Guid.NewGuid().ToString();
+            request.CustomerId = id;
+
+            var baseEvent = (BaseEvent)request;
+
+            await _customerService.ProcessBaseEvent(baseEvent);
+
+            return Accepted();
+        }
+
+        #endregion
     }
 }
