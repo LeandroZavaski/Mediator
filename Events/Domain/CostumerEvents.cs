@@ -29,13 +29,17 @@ namespace Barigui.Prototipo.Events {
             "ZBIRCglSZXF1ZXN0SWQYASABKAkSEgoKQ3VzdG9tZXJJZBgCIAEoCSKEAQoV",
             "Q3VzdG9tZXJJbmZvSW5zZXJ0aW9uEi0KAklkGAEgASgLMiEuQmFyaWd1aS5Q",
             "cm90b3RpcG8uRXZlbnRzLkV2ZW50SWQSDAoETm9tZRgCIAEoCRINCgVFbWFp",
-            "bBgDIAEoCRIQCghUZWxlZm9uZRgEIAEoCRINCgVJZGFkZRgFIAEoCUIbqgIY",
-            "QmFyaWd1aS5Qcm90b3RpcG8uRXZlbnRzYgZwcm90bzM="));
+            "bBgDIAEoCRIQCghUZWxlZm9uZRgEIAEoCRINCgVJZGFkZRgFIAEoCSKBAQoS",
+            "TmV3Q3VzdG9tZXJDcmVhdGVkEi0KAklkGAEgASgLMiEuQmFyaWd1aS5Qcm90",
+            "b3RpcG8uRXZlbnRzLkV2ZW50SWQSDAoETm9tZRgCIAEoCRINCgVFbWFpbBgD",
+            "IAEoCRIQCghUZWxlZm9uZRgEIAEoCRINCgVJZGFkZRgFIAEoCUIbqgIYQmFy",
+            "aWd1aS5Qcm90b3RpcG8uRXZlbnRzYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Barigui.Prototipo.Events.EventId), global::Barigui.Prototipo.Events.EventId.Parser, new[]{ "RequestId", "CustomerId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Barigui.Prototipo.Events.CustomerInfoInsertion), global::Barigui.Prototipo.Events.CustomerInfoInsertion.Parser, new[]{ "Id", "Nome", "Email", "Telefone", "Idade" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Barigui.Prototipo.Events.CustomerInfoInsertion), global::Barigui.Prototipo.Events.CustomerInfoInsertion.Parser, new[]{ "Id", "Nome", "Email", "Telefone", "Idade" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Barigui.Prototipo.Events.NewCustomerCreated), global::Barigui.Prototipo.Events.NewCustomerCreated.Parser, new[]{ "Id", "Nome", "Email", "Telefone", "Idade" }, null, null, null)
           }));
     }
     #endregion
@@ -385,6 +389,253 @@ namespace Barigui.Prototipo.Events {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(CustomerInfoInsertion other) {
+      if (other == null) {
+        return;
+      }
+      if (other.id_ != null) {
+        if (id_ == null) {
+          Id = new global::Barigui.Prototipo.Events.EventId();
+        }
+        Id.MergeFrom(other.Id);
+      }
+      if (other.Nome.Length != 0) {
+        Nome = other.Nome;
+      }
+      if (other.Email.Length != 0) {
+        Email = other.Email;
+      }
+      if (other.Telefone.Length != 0) {
+        Telefone = other.Telefone;
+      }
+      if (other.Idade.Length != 0) {
+        Idade = other.Idade;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (id_ == null) {
+              Id = new global::Barigui.Prototipo.Events.EventId();
+            }
+            input.ReadMessage(Id);
+            break;
+          }
+          case 18: {
+            Nome = input.ReadString();
+            break;
+          }
+          case 26: {
+            Email = input.ReadString();
+            break;
+          }
+          case 34: {
+            Telefone = input.ReadString();
+            break;
+          }
+          case 42: {
+            Idade = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class NewCustomerCreated : pb::IMessage<NewCustomerCreated> {
+    private static readonly pb::MessageParser<NewCustomerCreated> _parser = new pb::MessageParser<NewCustomerCreated>(() => new NewCustomerCreated());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<NewCustomerCreated> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Barigui.Prototipo.Events.CostumerEventsReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public NewCustomerCreated() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public NewCustomerCreated(NewCustomerCreated other) : this() {
+      id_ = other.id_ != null ? other.id_.Clone() : null;
+      nome_ = other.nome_;
+      email_ = other.email_;
+      telefone_ = other.telefone_;
+      idade_ = other.idade_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public NewCustomerCreated Clone() {
+      return new NewCustomerCreated(this);
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private global::Barigui.Prototipo.Events.EventId id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Barigui.Prototipo.Events.EventId Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Nome" field.</summary>
+    public const int NomeFieldNumber = 2;
+    private string nome_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Nome {
+      get { return nome_; }
+      set {
+        nome_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Email" field.</summary>
+    public const int EmailFieldNumber = 3;
+    private string email_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Email {
+      get { return email_; }
+      set {
+        email_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Telefone" field.</summary>
+    public const int TelefoneFieldNumber = 4;
+    private string telefone_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Telefone {
+      get { return telefone_; }
+      set {
+        telefone_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Idade" field.</summary>
+    public const int IdadeFieldNumber = 5;
+    private string idade_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Idade {
+      get { return idade_; }
+      set {
+        idade_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as NewCustomerCreated);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(NewCustomerCreated other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Id, other.Id)) return false;
+      if (Nome != other.Nome) return false;
+      if (Email != other.Email) return false;
+      if (Telefone != other.Telefone) return false;
+      if (Idade != other.Idade) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (id_ != null) hash ^= Id.GetHashCode();
+      if (Nome.Length != 0) hash ^= Nome.GetHashCode();
+      if (Email.Length != 0) hash ^= Email.GetHashCode();
+      if (Telefone.Length != 0) hash ^= Telefone.GetHashCode();
+      if (Idade.Length != 0) hash ^= Idade.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (id_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Id);
+      }
+      if (Nome.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Nome);
+      }
+      if (Email.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Email);
+      }
+      if (Telefone.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Telefone);
+      }
+      if (Idade.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Idade);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (id_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Id);
+      }
+      if (Nome.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Nome);
+      }
+      if (Email.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Email);
+      }
+      if (Telefone.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Telefone);
+      }
+      if (Idade.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Idade);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(NewCustomerCreated other) {
       if (other == null) {
         return;
       }

@@ -1,4 +1,5 @@
-﻿using Barigui.Infrastructure.Events.Interfaces;
+﻿using System;
+using Barigui.Infrastructure.Events.Interfaces;
 using Barigui.Prototipo.Events;
 using Domain.Entities;
 
@@ -18,6 +19,21 @@ namespace Events.Domain
             var customer = entity as Customer;
             customer.Id = EventId.CustomerId;
             Handle(customer);
+        }
+
+        public CustomerEvent ToCustomerEvent()
+        {
+            var lead = new Customer();
+            Handle(lead);
+            var evnt = new CustomerEvent()
+            {
+                Id = EventId.CustomerId + Guid.NewGuid().ToString("N"),
+                DeviceId = "",
+                EventType = GetType().ToString(),
+                LastUpdate = DateTime.UtcNow,
+                Payload = ToString()
+            };
+            return evnt;
         }
     }
 }

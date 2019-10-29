@@ -28,3 +28,16 @@ message CustomerInfoInsertion{
     string Idade  = 5;
 
 }
+
+message NewCustomerCreated {
+
+	EventId Id = 1;
+	
+    string Nome = 2;
+
+    string Email = 3;
+
+    string Telefone = 4;
+
+    string Idade  = 5;
+}

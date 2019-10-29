@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using Amazon.DynamoDBv2;
+using Application.Commands;
 using Application.CommandsHandlers;
 using Application.Services;
 using Application.Services.Interfaces;
@@ -42,23 +43,21 @@ namespace Web
                 c.SwaggerDoc("v1", new Info { Title = "API", Version = "v1" });
             });
 
-            services.AddOptions();
-            services.AddMediatR(typeof(GetByIdHandler).GetTypeInfo().Assembly);
-            services.AddMediatR(typeof(CreateHandler).GetTypeInfo().Assembly);
-            services.AddMediatR(typeof(UpdateHandler).GetTypeInfo().Assembly);
-            services.AddMediatR(typeof(DeleteHandler).GetTypeInfo().Assembly);
-
-
             services.Configure<AwsCredentials>(Configuration.GetSection("AwsCredentials"));
             //services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
-            //services.AddAWSService<IAmazonDynamoDB>(Configuration.GetAWSOptions(), ServiceLifetime.Transient);
+            services.AddAWSService<IAmazonDynamoDB>(Configuration.GetAWSOptions(), ServiceLifetime.Transient);
 
             services.AddTransient<IReader, Reader>();
             services.AddTransient<IWrite, Write>();
             services.AddTransient<IRemove, Remove>();
-
             services.AddTransient<ICustomerService, CustomerService>();
 
+            services.AddMediatR(typeof(GetByIdHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(CreateHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(UpdateHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(DeleteHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(PublishKinesis).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(PublishKinesisHandler).GetTypeInfo().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
