@@ -15,6 +15,11 @@ namespace Kinesis
     {
         private readonly IMediator _mediator;
 
+        public Function(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         /// <summary>
         /// A simple function that takes a string and does a ToUpper
         /// </summary>

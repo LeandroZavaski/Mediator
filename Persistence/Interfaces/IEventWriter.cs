@@ -8,6 +8,6 @@ namespace Persistence.Interfaces
 {
     public interface IEventWriter
     {
-        Task SaveLeadEventAsync(CustomerEvent customerEvent);
+        Task SaveCustomerEventAsync(CustomerEvent customerEvent);
     }
 }

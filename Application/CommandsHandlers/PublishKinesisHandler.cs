@@ -60,7 +60,6 @@ namespace Application.CommandsHandlers
             {
                 throw new Exception(ex.Message);
             }
-
         }
     }
 }

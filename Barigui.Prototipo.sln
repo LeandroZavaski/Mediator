@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events", "Events\Events.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{D1A1DFC0-F950-4D1D-AA96-9BADC3099765}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Test", "CustomerControllerTest\Web.Test.csproj", "{CD304195-BBDE-4680-8E2A-F11D9E2AE7CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{D1A1DFC0-F950-4D1D-AA96-9BADC3099765}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1A1DFC0-F950-4D1D-AA96-9BADC3099765}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1A1DFC0-F950-4D1D-AA96-9BADC3099765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD304195-BBDE-4680-8E2A-F11D9E2AE7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD304195-BBDE-4680-8E2A-F11D9E2AE7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD304195-BBDE-4680-8E2A-F11D9E2AE7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD304195-BBDE-4680-8E2A-F11D9E2AE7CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{8F2AF2A5-F011-47AB-804B-733961057DFF} = {C5C27919-BFBC-41AB-8AB0-89188EB08032}
 		{8347F735-1D9C-427F-BB65-0EE37B850867} = {C5C27919-BFBC-41AB-8AB0-89188EB08032}
 		{D1A1DFC0-F950-4D1D-AA96-9BADC3099765} = {C5C27919-BFBC-41AB-8AB0-89188EB08032}
+		{CD304195-BBDE-4680-8E2A-F11D9E2AE7CC} = {481D581F-6890-44F7-8372-60E5A6B589C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77A4F017-778E-4CFE-BB07-175E24DC0AB5}

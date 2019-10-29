@@ -18,7 +18,7 @@ namespace Persistence.DynamoDB.Services
 
         }
 
-        public async Task SaveLeadEventAsync(CustomerEvent customerEvent)
+        public async Task SaveCustomerEventAsync(CustomerEvent customerEvent)
         {
             var json = JsonConvert.SerializeObject(customerEvent);
             await Table.PutItemAsync(Amazon.DynamoDBv2.DocumentModel.Document.FromJson(json));

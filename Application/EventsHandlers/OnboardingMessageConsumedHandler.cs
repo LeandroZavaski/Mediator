@@ -43,7 +43,7 @@ namespace Application.EventsHandlers
                     //If lead doesn't exist, ignore object update
                     if (existingLead is null)
                     {
-                        await _eventWriter.SaveLeadEventAsync(customerEvent.ToCustomerEvent());
+                        await _eventWriter.SaveCustomerEventAsync(customerEvent.ToCustomerEvent());
                     }
                     else
                     {
@@ -56,7 +56,7 @@ namespace Application.EventsHandlers
 
         private async Task UpdateLeadAndRegisterEventAsync(Customer customer, BaseCustomerEvent leadEvent)
         {
-            await _eventWriter.SaveLeadEventAsync(leadEvent.ToCustomerEvent());
+            await _eventWriter.SaveCustomerEventAsync(leadEvent.ToCustomerEvent());
 
             leadEvent.Handle(customer);
 
